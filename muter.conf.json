@@ -5,11 +5,12 @@
     "-scheme",
     "ToDo",
     "-destination",
-    "platform=iOS Simulator,name=iPhone 8",
+    "platform=iOS Simulator,name=iPhone 11",
     "test"
   ],
   "exclude" : [
-
+    "ToDoUITests",
+    "muter_logs"
   ],
   "executable" : "\/usr\/bin\/xcodebuild"
 }

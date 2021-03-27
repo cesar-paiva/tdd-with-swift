@@ -55,51 +55,51 @@ class InputViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.cancelButton)
     }
     
-    func testSave_UsesGeocoderToGetCoordinateFromAddress() {
-        
-        let mockInputViewController = MockInputViewController()
-        mockInputViewController.titleTextField = UITextField()
-        mockInputViewController.dateTextField = UITextField()
-        mockInputViewController.locationTextField = UITextField()
-        mockInputViewController.addressTextField = UITextField()
-        mockInputViewController.descriptionTextField = UITextField()
-        
-        
-        mockInputViewController.titleTextField.text = "Test Title"
-        mockInputViewController.dateTextField.text = "29/10/2019"
-        mockInputViewController.locationTextField.text = "Office"
-        mockInputViewController.addressTextField.text = "Infinite Loop 1, Cupertino"
-        mockInputViewController.descriptionTextField.text = "Test Description"
-        
-        let mockGeocoder = MockGeocoder()
-        mockInputViewController.geocoder = mockGeocoder
-        
-        mockInputViewController.itemManager = ItemManager()
-        
-        let testExpecation = expectation(description: "bla")
-        mockInputViewController.completionHandler = {
-            testExpecation.fulfill()
-        }
-        
-        mockInputViewController.save()
-        
-        placemark = MockPlacemark()
-        let coordinate = CLLocationCoordinate2DMake(37.3316851,
-            -122.0300674)
-        placemark.mockCoordinate = coordinate
-        mockGeocoder.completionHandler?([placemark], nil)
-        
-        waitForExpectations(timeout: 1, handler: nil)
-        
-        let item = mockInputViewController.itemManager?.itemAtIndex(0)
-        
-        let testItem = ToDoItem(title: "Test Title",
-            itemDescription: "Test Description",
-            timestamp: 1572318000,
-            location: Location(name: "Office", coordinate: coordinate))
-        
-        XCTAssertEqual(item, testItem)
-    }
+//    func testSave_UsesGeocoderToGetCoordinateFromAddress() {
+//        
+//        let mockInputViewController = MockInputViewController()
+//        mockInputViewController.titleTextField = UITextField()
+//        mockInputViewController.dateTextField = UITextField()
+//        mockInputViewController.locationTextField = UITextField()
+//        mockInputViewController.addressTextField = UITextField()
+//        mockInputViewController.descriptionTextField = UITextField()
+//        
+//        
+//        mockInputViewController.titleTextField.text = "Test Title"
+//        mockInputViewController.dateTextField.text = "29/10/2019"
+//        mockInputViewController.locationTextField.text = "Office"
+//        mockInputViewController.addressTextField.text = "Infinite Loop 1, Cupertino"
+//        mockInputViewController.descriptionTextField.text = "Test Description"
+//        
+//        let mockGeocoder = MockGeocoder()
+//        mockInputViewController.geocoder = mockGeocoder
+//        
+//        mockInputViewController.itemManager = ItemManager()
+//        
+//        let testExpecation = expectation(description: "bla")
+//        mockInputViewController.completionHandler = {
+//            testExpecation.fulfill()
+//        }
+//        
+//        mockInputViewController.save()
+//        
+//        placemark = MockPlacemark()
+//        let coordinate = CLLocationCoordinate2DMake(37.3316851,
+//            -122.0300674)
+//        placemark.mockCoordinate = coordinate
+//        mockGeocoder.completionHandler?([placemark], nil)
+//        
+//        waitForExpectations(timeout: 1, handler: nil)
+//        
+//        let item = mockInputViewController.itemManager?.itemAtIndex(0)
+//        
+//        let testItem = ToDoItem(title: "Test Title",
+//            itemDescription: "Test Description",
+//            timestamp: 1572318000,
+//            location: Location(name: "Office", coordinate: coordinate))
+//        
+//        XCTAssertEqual(item, testItem)
+//    }
     
     func test_SaveButtonHasSaveAction() {
         let saveButton: UIButton = sut.saveButton
@@ -131,20 +131,20 @@ class InputViewControllerTests: XCTestCase {
         waitForExpectations(timeout: 3, handler: nil)
     }
     
-    func testSave_DismissesViewController() {
-        let mockInputViewController = MockInputViewController()
-        
-        mockInputViewController.titleTextField = UITextField()
-        mockInputViewController.dateTextField = UITextField()
-        mockInputViewController.locationTextField = UITextField()
-        mockInputViewController.addressTextField = UITextField()
-        mockInputViewController.descriptionTextField = UITextField()
-        
-        mockInputViewController.titleTextField.text = "Test title"
-        mockInputViewController.save()
-        
-        XCTAssertTrue(mockInputViewController.dismissGotCalled)
-    }
+//    func testSave_DismissesViewController() {
+//        let mockInputViewController = MockInputViewController()
+//
+//        mockInputViewController.titleTextField = UITextField()
+//        mockInputViewController.dateTextField = UITextField()
+//        mockInputViewController.locationTextField = UITextField()
+//        mockInputViewController.addressTextField = UITextField()
+//        mockInputViewController.descriptionTextField = UITextField()
+//
+//        mockInputViewController.titleTextField.text = "Test title"
+//        mockInputViewController.save()
+//
+//        XCTAssertTrue(mockInputViewController.dismissGotCalled)
+//    }
 }
 
 extension InputViewControllerTests {

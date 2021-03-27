@@ -27,35 +27,35 @@ class ToDoUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testSaveItem_ShouldSaveItem() {
-        
-        let app = XCUIApplication()
-        app.navigationBars["Task List View"].buttons["Add"].tap()
-        
-        let titleTextField = app.textFields["Title"]
-        titleTextField.tap()
-        titleTextField.typeText("Beca iOS")
-        
-        let dateTextField = app.textFields["Date"]
-        dateTextField.tap()
-        dateTextField.typeText("29/10/2019")
-        
-        let locationNameTextField = app.textFields["Location Name"]
-        locationNameTextField.tap()
-        locationNameTextField.typeText("everis")
-        
-        let addressTextField = app.textFields["Address"]
-        addressTextField.tap()
-        addressTextField.typeText("Av. Dr Chucri Zaidan, 70")
-        
-        let descriptionTextField = app.textFields["Description"]
-        descriptionTextField.tap()
-        descriptionTextField.typeText("TDD Course with swift")
-        app.buttons["Save"].tap()
-        
-        XCTAssertTrue(app.tables.staticTexts["Beca iOS"].exists)
-        XCTAssertTrue(app.tables.staticTexts["29/10/2019"].exists)
-        XCTAssertTrue(app.tables.staticTexts["everis"].exists)
-    }
+//    func testSaveItem_ShouldSaveItem() {
+//        
+//        let app = XCUIApplication()
+//        app.navigationBars["Task List View"].buttons["Add"].tap()
+//        
+//        let titleTextField = app.textFields["Title"]
+//        titleTextField.tap()
+//        titleTextField.typeText("Beca iOS")
+//        
+//        let dateTextField = app.textFields["Date"]
+//        dateTextField.tap()
+//        dateTextField.typeText("29/10/2019")
+//        
+//        let locationNameTextField = app.textFields["Location Name"]
+//        locationNameTextField.tap()
+//        locationNameTextField.typeText("everis")
+//        
+//        let addressTextField = app.textFields["Address"]
+//        addressTextField.tap()
+//        addressTextField.typeText("Av. Dr Chucri Zaidan, 70")
+//        
+//        let descriptionTextField = app.textFields["Description"]
+//        descriptionTextField.tap()
+//        descriptionTextField.typeText("TDD Course with swift")
+//        app.buttons["Save"].tap()
+//        
+//        XCTAssertTrue(app.tables.staticTexts["Beca iOS"].exists)
+//        XCTAssertTrue(app.tables.staticTexts["29/10/2019"].exists)
+//        XCTAssertTrue(app.tables.staticTexts["everis"].exists)
+//    }
 
 }
